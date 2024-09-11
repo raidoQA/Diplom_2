@@ -1,6 +1,6 @@
 import allure
 import requests
-from data import Data
+from data import Data, ResponseMessages
 from helpers import *
 
 class TestChangeUserData:
@@ -35,4 +35,4 @@ class TestChangeUserData:
                   }
         requests.post(Data.create_user, data=user_1)
         response = requests.patch(Data.change_user_data, data=user_2)
-        assert response.status_code == 401 and response.json()['message'] == "You should be authorised"
+        assert response.status_code == 401 and response.json()['message'] == ResponseMessages.authorization_required

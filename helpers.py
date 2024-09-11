@@ -1,4 +1,6 @@
 from faker import Faker
+import requests
+from data import Data
 
 faker = Faker()
 fakerRU = Faker(locale='ru_Ru')

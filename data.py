@@ -1,11 +1,11 @@
 class Data:
-    base_Url = "https://stellarburgers.nomoreparties.site"
-    main_page = "https://stellarburgers.nomoreparties.site/"
-    create_user = "https://stellarburgers.nomoreparties.site/api/auth/register"
-    login_user = "https://stellarburgers.nomoreparties.site/api/auth/login"
-    change_user_data = "https://stellarburgers.nomoreparties.site/api/auth/user"
-    create_order = "https://stellarburgers.nomoreparties.site/api/orders"
-    orders_from_user = "https://stellarburgers.nomoreparties.site/api/orders"
+    base_Url = "stellarburgers.nomoreparties.site"
+    main_page = f"https://{base_Url}/"
+    create_user = f"https://{base_Url}/api/auth/register"
+    login_user = f"https://{base_Url}/api/auth/login"
+    change_user_data = f"https://{base_Url}/api/auth/user"
+    create_order = f"https://{base_Url}/api/orders"
+    orders_from_user = f"https://{base_Url}/api/orders"
 
 
 class UserData:
@@ -21,3 +21,9 @@ class BurgerIngredients:
     burger_existing_check = "Бессмертный флюоресцентный бургер"
     non_existent_burger = {'ingredients': ['35c0c5d1fр82001bdaaa6d', '61c0c5a71d1f82001bdaaa6f']}
     burger_empty = {'ingredients': ''}
+
+class ResponseMessages:
+    authorization_required = "You should be authorised"
+    user_already_created = "User already exists"
+    required_fields = "Email, password and name are required fields"
+    incorrect_data = "email or password are incorrect"

@@ -1,6 +1,6 @@
 import allure
 import requests
-from data import Data, UserData
+from data import Data, UserData, ResponseMessages
 from helpers import *
 
 
@@ -30,7 +30,7 @@ class TestLoginUser:
         response = requests.post(Data.login_user, data=payload)
         assert (response.status_code == 401
                 and response.json()["success"] == False
-                and response.json()["message"] == "email or password are incorrect")
+                and response.json()["message"] == ResponseMessages.incorrect_data)
 
     @allure.title('Проверка логина c неверным паролем')
     @allure.description(
@@ -43,4 +43,4 @@ class TestLoginUser:
         response = requests.post(Data.login_user, data=payload)
         assert (response.status_code == 401
                 and response.json()["success"] == False
-                and response.json()["message"] == "email or password are incorrect")
+                and response.json()["message"] == ResponseMessages.incorrect_data)

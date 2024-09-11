@@ -1,10 +1,11 @@
 import allure
 import requests
-from data import Data, UserData
+from data import Data, UserData, ResponseMessages
 from helpers import *
 
 
 class TestUserCreate:
+
     @allure.title('Проверяем создания пользователя')
     @allure.description('Создаём пользователя и проверяем, что код ответа = 200')
     def test_create_user(self):
@@ -28,7 +29,7 @@ class TestUserCreate:
         response = requests.post(Data.create_user, data=payload)
         assert (response.status_code == 403
                 and response.json()["success"] == False
-                and response.json()["message"] == "User already exists")
+                and response.json()["message"] == ResponseMessages.user_already_created)
 
 
     @allure.title('Проверяем невозможность создания пользователя без одного обязательного поля')
@@ -40,4 +41,4 @@ class TestUserCreate:
         response = requests.post(Data.create_user, data=payload)
         assert (response.status_code == 403
                 and response.json()["success"] == False
-                and response.json()["message"] == "Email, password and name are required fields")
+                and response.json()["message"] == ResponseMessages.required_fields)
